@@ -84,12 +84,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <span>Browse missing children</span>
               </a>
 
-              <a data-route="users" href="/users">
+              <a data-route="identify" href="/identify">
                 <iron-icon icon="info"></iron-icon>
                 <span>Identify a child</span>
               </a>
 
-              <a data-route="users" href="/users">
+              <a data-route="about" href="/about">
                 <iron-icon icon="info"></iron-icon>
                 <span>About Families reunited</span>
               </a>
@@ -117,9 +117,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <!-- Application sub title -->
           <div class="bottom title">{{route}}</div>
 
-        </paper-toolbar>
+
 
         <!-- Main Content -->
+        </paper-toolbar>
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
@@ -192,22 +193,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="browse">
+
+                <paper-icon-button raised icon="filter-list" alt="filter-list" title="Filter">Filter</paper-icon-button><span>Filter</span>
               <template is="dom-repeat" items="{{people}}">
-                <paper-material elevation="1">
+                <!-- <paper-material elevation="1">
                   <h2 class="paper-font-display2">{{item.name}}</h2>
                   <img href$="{{image}}"></img>
                   <h3>Age: <span>{{item.age}}</span></h3>
                   <div>Last seen in <span>{{item.location}}</span> on <span>{{item.date}}</span></div>
+                </paper-material> -->
+                <paper-material elevation="1">
+                  <paper-icon-item>
+                    <iron-icon icon="communication:email" item-icon></iron-icon>
+                    <paper-item-body three-line>
+                      <div>{{item.name}}</div>
+                      <div secondary>{{item.age}}</div>
+                      <div>Last seen in <span>{{item.location}}</span> on <span>{{item.date}}</span></div>
+                    </paper-item-body>
+                  </paper-icon-item>
                 </paper-material>
               </template>
             </section>
 
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
-              </paper-material>
+            <section data-route="about">
+              <h4>Icon with two-line text</h4>
+              <div class="list">
+                <paper-icon-item>
+                  <div class="avatar green" item-icon></div>
+                  <paper-item-body two-line>
+                    <div>Alphonso Engelking</div>
+                    <div secondary>Change photo</div>
+                  </paper-item-body>
+                </paper-icon-item>
+                <paper-icon-item>
+                  <iron-icon icon="communication:phone" item-icon></iron-icon>
+                  <paper-item-body two-line>
+                    <div>(650) 555-1234</div>
+                    <div secondary>Mobile</div>
+                  </paper-item-body>
+                </paper-icon-item>
+                <paper-icon-item>
+                  <iron-icon icon="communication:email" item-icon></iron-icon>
+                  <paper-item-body three-line>
+                    <div>alphonso@example.com</div>
+                    <div secondary>Personal</div>
+                  </paper-item-body>
+                </paper-icon-item>
+
+              </div>
             </section>
 
             <section data-route="user-info">
